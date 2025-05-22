@@ -1,3 +1,10 @@
+/* 
+
+Owner: Eduardo Bolognini - RoboGe 
+Lavoro realizzato per un progetto scolatisco.
+
+*/
+
 const { parentPort, workerData } = require('worker_threads')
 
 // Costanti di gioco
