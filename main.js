@@ -3,7 +3,7 @@ const os = require('os')
 const fs = require('fs')
 
 // Parametri
-let n_simulazioni_totali = 14000000
+let n_simulazioni_totali = 10000
 const max_workers = 4  // Limite per evitare oversubscription
 const n_workers = Math.min(max_workers, os.cpus().length)
 
@@ -11,6 +11,7 @@ const n_workers = Math.min(max_workers, os.cpus().length)
 while (n_simulazioni_totali % n_workers !== 0) {
   n_simulazioni_totali++
 }
+
 const simulazioni_per_worker = n_simulazioni_totali / n_workers
 console.log("Numero totale di simulazioni ottimizzato:", n_simulazioni_totali)
 
@@ -82,9 +83,12 @@ for (let i = 0; i < n_workers; i++) {
         console.log('Non convenuto:', non_convenuto_tot)
         console.log('Spesa totale:', spesa_totale)
         console.log('Guadagno totale:', guadagno_totale)
-        console.log(`Guadagno netto: ${spesa_totale - guadagno_totale} €`)
+        console.log(`Guadagno del signor gratta e vinci: ${spesa_totale - guadagno_totale} €`)
 
         // Stampa tabella premi ordinata
+
+        console.log(premiGlobali)
+        
         const ordinati = Object.entries(premiGlobali)
           .map(([p, c]) => ({ premio: p, cnt: c }))
           .sort((a,b) => parseFloat(a.premio) - parseFloat(b.premio))
