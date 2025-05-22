@@ -6,11 +6,22 @@ const massSpendibile = 800
 
 // Distribuzione pesi
 const importiConProb = {
-  0: 71.45, 2: 15.47, 5: 8.81, 10: 2.94,
-  20: 0.68, 50: 0.03, 100: 0.0072, 200: 0.00058,
-  500: 0.00037, 1000: 0.000083, 100000: 0.00000926,
-  quadrifoglio: 0.15, cornetto: 0.036, ferro_di_cavallo: 0.0018
+    "100000": 0.08149,
+    "1000": 0.21044,
+    "500": 0.26348,
+    "200": 0.33369,
+    "100": 0.82025,
+    "50": 1.21156,
+    "20": 2.53856,
+    "10": 2.66501,
+    "5": 3.60514,
+    "2": 4.33514,
+    "0": 82.93525,
+    "quadrifoglio": 1.00, 
+    "cornetto": 0.75, 
+    "ferro_di_cavallo": 0.5 
 }
+
 const simboliSpeciali = { quadrifoglio:10, cornetto:20, ferro_di_cavallo:50 }
 
 // Precalcolo cumulativo
@@ -46,7 +57,7 @@ function simula(n){
   const step = Math.max(1000, Math.floor(n/100))
   for(let i=1;i<=n;i++){
     let sp=0, gu=0, countGiocate=0
-    while(sp<=massSpendibile-costoPerGratta && sp>=gu){
+    while(sp<=massSpendibile-costoPerGratta){
       sp+=costoPerGratta; countGiocate++
       const r=gioca()
       gu+=r.guadagno
