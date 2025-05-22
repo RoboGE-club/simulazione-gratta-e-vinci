@@ -1,3 +1,10 @@
+/* 
+
+Owner: Eduardo Bolognini - RoboGe 
+Lavoro realizzato per un progetto scolatisco.
+
+*/
+
 const { Worker } = require('worker_threads')
 const os = require('os')
 const fs = require('fs')
